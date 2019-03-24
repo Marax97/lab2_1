@@ -9,7 +9,7 @@ import edu.iis.mto.bsearch.SearchResult;
 public class BinarySearchTest {
 
     private int[] seqOne = {5};
-    private int[] seqTwo = {0, 1, 2, 3, 4, 5, 6, 7};
+    private int[] seqTwo = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
 
     @Test
     public void existingElementInOneElementSeq() {
@@ -33,5 +33,11 @@ public class BinarySearchTest {
     public void checkIfIsLastElementInSeq() {
         SearchResult searchResult = BinarySearch.search(seqTwo[seqTwo.length - 1], seqTwo);
         Assert.assertEquals(searchResult.getPosition(), seqTwo.length - 1);
+    }
+
+    @Test
+    public void checkIfIsMiddleElementInSeq() {
+        SearchResult searchResult = BinarySearch.search(seqTwo[seqTwo.length / 2 - 1], seqTwo);
+        Assert.assertEquals(searchResult.getPosition(), seqTwo.length / 2 - 1);
     }
 }
