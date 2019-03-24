@@ -15,37 +15,37 @@ public class BinarySearchTest {
     private int[] seqTwo = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
 
     @Test
-    public void existingElementInOneElementSeq() {
+    public void checkIfExistingElementInOneElementSeqReturn0() {
         SearchResult searchResult = BinarySearch.search(seqOne[0], seqOne);
         assertThat(searchResult.getPosition(), is(equalTo(0)));
     }
 
     @Test
-    public void notExistingElementInOneElementSeq() {
+    public void checkIfNotExistingElementInOneElementSeqReturnNegativeOne() {
         SearchResult searchResult = BinarySearch.search(3, seqOne);
         assertThat(searchResult.getPosition(), is(equalTo(-1)));
     }
 
     @Test
-    public void checkIfFirstElementIsInSeq() {
+    public void checkIfFirstElementIsInSeqAtFirstPosition() {
         SearchResult searchResult = BinarySearch.search(seqTwo[0], seqTwo);
         assertThat(searchResult.getPosition(), is(equalTo(0)));
     }
 
     @Test
-    public void checkIfLastElementIsInSeq() {
+    public void checkIfLastElementIsInSeqAtLastPosition() {
         SearchResult searchResult = BinarySearch.search(seqTwo[seqTwo.length - 1], seqTwo);
         assertThat(searchResult.getPosition(), is(equalTo(seqTwo.length - 1)));
     }
 
     @Test
-    public void checkIfMiddleElementIsInSeq() {
+    public void checkIfMiddleElementIsInSeqAtMiddlePosition() {
         SearchResult searchResult = BinarySearch.search(seqTwo[seqTwo.length / 2 - 1], seqTwo);
         assertThat(searchResult.getPosition(), is(equalTo(seqTwo.length / 2 - 1)));
     }
 
     @Test
-    public void checkIfAnyElementIsInSeq() {
+    public void checkIfNotExistingElementReturnPositionNegativeOne() {
         SearchResult searchResult = BinarySearch.search(1000, seqTwo);
         assertThat(searchResult.getPosition(), is(equalTo(-1)));
     }
