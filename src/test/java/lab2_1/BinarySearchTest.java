@@ -13,7 +13,7 @@ public class BinarySearchTest {
 
     @Test
     public void existingElementInOneElementSeq() {
-        SearchResult searchResult = BinarySearch.search(5, seqOne);
+        SearchResult searchResult = BinarySearch.search(seqOne[0], seqOne);
         Assert.assertEquals(searchResult.getPosition(), 0);
     }
 
@@ -25,7 +25,7 @@ public class BinarySearchTest {
 
     @Test
     public void checkIfFirstElementIsInSeq() {
-        SearchResult searchResult = BinarySearch.search(0, seqTwo);
+        SearchResult searchResult = BinarySearch.search(seqTwo[0], seqTwo);
         Assert.assertEquals(searchResult.getPosition(), 0);
     }
 
@@ -45,5 +45,11 @@ public class BinarySearchTest {
     public void checkIfAnyElementIsInSeq() {
         SearchResult searchResult = BinarySearch.search(1000, seqTwo);
         Assert.assertEquals(searchResult.getPosition(), -1);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void shouldThrowIllegalArgumentExceptionOnEmptySeq() {
+        int[] empty = {};
+        BinarySearch.search(0, empty);
     }
 }
