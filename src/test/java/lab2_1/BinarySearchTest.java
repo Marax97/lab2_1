@@ -40,8 +40,8 @@ public class BinarySearchTest {
 
     @Test
     public void checkIfMiddleElementIsInSeqAtMiddlePosition() {
-        SearchResult searchResult = BinarySearch.search(seqTwo[seqTwo.length / 2 - 1], seqTwo);
-        assertThat(searchResult.getPosition(), is(equalTo(seqTwo.length / 2 - 1)));
+        SearchResult searchResult = BinarySearch.search(seqTwo[(seqTwo.length - 1) / 2], seqTwo);
+        assertThat(searchResult.getPosition(), is(equalTo((seqTwo.length - 1) / 2)));
     }
 
     @Test
@@ -54,5 +54,17 @@ public class BinarySearchTest {
     public void shouldThrowIllegalArgumentExceptionOnEmptySeq() {
         int[] empty = {};
         BinarySearch.search(0, empty);
+    }
+
+    /*
+     * testy_v3 odp Lepiej przeprowadzic test dla elementu o jeden mniejszemu niż środkowy. Pozwoli to na przejście
+     * wiekszej liczby gałęzi (skrajna wartość) niż w przypdku sprawdzania pierwszego elementu. Wystąpi tylko dla
+     * sekwencji z parzystą liczbą elementów.
+     */
+    @Test
+    public void checkElementAtPossitionLowerByOneThenMiddleElement() {
+        int[] seq = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+        SearchResult searchResult = BinarySearch.search((seqTwo.length - 1) / 2 - 1, seq);
+        assertThat(searchResult.getPosition(), is(equalTo((seqTwo.length - 1) / 2 - 1)));
     }
 }
