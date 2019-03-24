@@ -24,20 +24,26 @@ public class BinarySearchTest {
     }
 
     @Test
-    public void checkIfIsFirstElementInSeq() {
+    public void checkIfFirstElementIsInSeq() {
         SearchResult searchResult = BinarySearch.search(0, seqTwo);
         Assert.assertEquals(searchResult.getPosition(), 0);
     }
 
     @Test
-    public void checkIfIsLastElementInSeq() {
+    public void checkIfLastElementIsInSeq() {
         SearchResult searchResult = BinarySearch.search(seqTwo[seqTwo.length - 1], seqTwo);
         Assert.assertEquals(searchResult.getPosition(), seqTwo.length - 1);
     }
 
     @Test
-    public void checkIfIsMiddleElementInSeq() {
+    public void checkIfMiddleElementIsInSeq() {
         SearchResult searchResult = BinarySearch.search(seqTwo[seqTwo.length / 2 - 1], seqTwo);
         Assert.assertEquals(searchResult.getPosition(), seqTwo.length / 2 - 1);
+    }
+
+    @Test
+    public void checkIfAnyElementIsInSeq() {
+        SearchResult searchResult = BinarySearch.search(1000, seqTwo);
+        Assert.assertEquals(searchResult.getPosition(), -1);
     }
 }
