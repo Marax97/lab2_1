@@ -9,6 +9,7 @@ import edu.iis.mto.bsearch.SearchResult;
 public class BinarySearchTest {
 
     private int[] seqOne = {5};
+    private int[] seqTwo = {0, 1, 2, 3, 4, 5, 6, 7};
 
     @Test
     public void existingElementInOneElementSeq() {
@@ -22,4 +23,9 @@ public class BinarySearchTest {
         Assert.assertEquals(searchResult.getPosition(), -1);
     }
 
+    @Test
+    public void checkIfIsFirstElementInSeq() {
+        SearchResult searchResult = BinarySearch.search(0, seqTwo);
+        Assert.assertEquals(searchResult.getPosition(), 0);
+    }
 }
