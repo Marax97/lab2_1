@@ -1,6 +1,9 @@
 package lab2_1;
 
-import org.junit.Assert;
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertThat;
+
 import org.junit.Test;
 
 import edu.iis.mto.bsearch.BinarySearch;
@@ -14,37 +17,37 @@ public class BinarySearchTest {
     @Test
     public void existingElementInOneElementSeq() {
         SearchResult searchResult = BinarySearch.search(seqOne[0], seqOne);
-        Assert.assertEquals(searchResult.getPosition(), 0);
+        assertThat(searchResult.getPosition(), is(equalTo(0)));
     }
 
     @Test
     public void notExistingElementInOneElementSeq() {
         SearchResult searchResult = BinarySearch.search(3, seqOne);
-        Assert.assertEquals(searchResult.getPosition(), -1);
+        assertThat(searchResult.getPosition(), is(equalTo(-1)));
     }
 
     @Test
     public void checkIfFirstElementIsInSeq() {
         SearchResult searchResult = BinarySearch.search(seqTwo[0], seqTwo);
-        Assert.assertEquals(searchResult.getPosition(), 0);
+        assertThat(searchResult.getPosition(), is(equalTo(0)));
     }
 
     @Test
     public void checkIfLastElementIsInSeq() {
         SearchResult searchResult = BinarySearch.search(seqTwo[seqTwo.length - 1], seqTwo);
-        Assert.assertEquals(searchResult.getPosition(), seqTwo.length - 1);
+        assertThat(searchResult.getPosition(), is(equalTo(seqTwo.length - 1)));
     }
 
     @Test
     public void checkIfMiddleElementIsInSeq() {
         SearchResult searchResult = BinarySearch.search(seqTwo[seqTwo.length / 2 - 1], seqTwo);
-        Assert.assertEquals(searchResult.getPosition(), seqTwo.length / 2 - 1);
+        assertThat(searchResult.getPosition(), is(equalTo(seqTwo.length / 2 - 1)));
     }
 
     @Test
     public void checkIfAnyElementIsInSeq() {
         SearchResult searchResult = BinarySearch.search(1000, seqTwo);
-        Assert.assertEquals(searchResult.getPosition(), -1);
+        assertThat(searchResult.getPosition(), is(equalTo(-1)));
     }
 
     @Test(expected = IllegalArgumentException.class)
