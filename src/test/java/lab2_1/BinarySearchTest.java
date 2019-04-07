@@ -11,41 +11,44 @@ import edu.iis.mto.bsearch.SearchResult;
 
 public class BinarySearchTest {
 
-    private int[] seqOne = {5};
-    private int[] seqTwo = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-
     @Test
     public void checkIfExistingElementInOneElementSeqReturn0() {
-        SearchResult searchResult = BinarySearch.search(seqOne[0], seqOne);
+        int[] seqOne = {5};
+        SearchResult searchResult = BinarySearch.search(5, seqOne);
         assertThat(searchResult.getPosition(), is(equalTo(0)));
     }
 
     @Test
     public void checkIfNotExistingElementInOneElementSeqReturnNegativeOne() {
+        int[] seqOne = {5};
         SearchResult searchResult = BinarySearch.search(3, seqOne);
         assertThat(searchResult.getPosition(), is(equalTo(-1)));
     }
 
     @Test
     public void checkIfFirstElementIsInSeqAtFirstPosition() {
+        int[] seqTwo = {2, 3, 5, 6, 7, 8, 9, 10};
         SearchResult searchResult = BinarySearch.search(seqTwo[0], seqTwo);
         assertThat(searchResult.getPosition(), is(equalTo(0)));
     }
 
     @Test
     public void checkIfLastElementIsInSeqAtLastPosition() {
+        int[] seqTwo = {0, 1, 2, 3, 4, 5, 6, 10};
         SearchResult searchResult = BinarySearch.search(seqTwo[seqTwo.length - 1], seqTwo);
         assertThat(searchResult.getPosition(), is(equalTo(seqTwo.length - 1)));
     }
 
     @Test
     public void checkIfMiddleElementIsInSeqAtMiddlePosition() {
+        int[] seqTwo = {0, 1, 2, 3, 4, 5, 23, 42, 13};
         SearchResult searchResult = BinarySearch.search(seqTwo[(seqTwo.length - 1) / 2], seqTwo);
         assertThat(searchResult.getPosition(), is(equalTo((seqTwo.length - 1) / 2)));
     }
 
     @Test
     public void checkIfNotExistingElementReturnPositionNegativeOne() {
+        int[] seqTwo = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
         SearchResult searchResult = BinarySearch.search(1000, seqTwo);
         assertThat(searchResult.getPosition(), is(equalTo(-1)));
     }
@@ -64,7 +67,7 @@ public class BinarySearchTest {
     @Test
     public void checkElementAtPossitionLowerByOneThenMiddleElement() {
         int[] seq = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
-        SearchResult searchResult = BinarySearch.search((seqTwo.length - 1) / 2 - 1, seq);
-        assertThat(searchResult.getPosition(), is(equalTo((seqTwo.length - 1) / 2 - 1)));
+        SearchResult searchResult = BinarySearch.search((seq.length - 1) / 2 - 1, seq);
+        assertThat(searchResult.getPosition(), is(equalTo((seq.length - 1) / 2 - 1)));
     }
 }
